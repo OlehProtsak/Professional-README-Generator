@@ -1,9 +1,15 @@
+function isValidEmail(email) {
+  // Regular expression for a basic email format validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
 const questions = [
   {
     type: "input",
     name: "title",
     message: "What is the title of your project?",
-    validate: (input) => (input ? "Please enter name of project" : true),
+    validate: (input) => (!input ? "Please enter name of project" : true),
   },
   {
     type: "input",
@@ -59,7 +65,7 @@ const questions = [
     type: "input",
     name: "contributing",
     message:
-      "Can you provide examples or instructions on how to use your project?",
+      "Are there any guidelines for others who want to contribute to your project?",
     dafault: "N/A",
   },
   {
@@ -73,6 +79,10 @@ const questions = [
     name: "email",
     message:
       "Please provide your email address for people who will work with your code to contact you.",
+    validate: (input) =>
+      !input || isValidEmail(input)
+        ? true
+        : "Invalid email format. Please provide a valid email address.",
   },
   {
     type: "input",
@@ -81,3 +91,5 @@ const questions = [
       "Please provide your GitHub user name for people who will work with your code to contact you.",
   },
 ];
+
+module.exports = questions;

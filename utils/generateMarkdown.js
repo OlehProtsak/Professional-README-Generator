@@ -1,17 +1,18 @@
 // function to generate markdown for README
 function generateMarkdown(data) {
+  let result = "";
+
+  for (let i = 0; i < data.tableOfContents.length; i++) {
+    result += `- [${data.tableOfContents[i]}](#${data.tableOfContents[i]})\n`;
+  }
+
   return `# ${data.title}
 
 ## Description
 ${data.description}
 
 ## Table of Contents
-- [Installation](#installation)
-- [Usage](#usage)
-- [License](#license)
-- [Contributing](#contributing)
-- [Tests](#tests)
-- [Questions](#questions)
+${result}
 
 ## Installation
 ${data.installation}
