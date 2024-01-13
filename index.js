@@ -5,21 +5,26 @@ const questions = require("./utils/questions");
 const generateMarkdown = require("./utils/generateMarkdown");
 
 // function to write README file
-function writeToFile(fileName, data) {}
-
+function writeToFile(fileName, data) {
+  fs.writeFile(fileName, data, (err) => {
+    err ? console.log(err) : true;
+  });
+}
 // function to initialize program
 function init() {
   inquirer
     .prompt(questions)
     .then((answers) => {
-      // Use user feedback for... whatever!!
-      console.log(answers);
+      writeToFile(
+        path.join(__dirname, "output", "README.md"),
+        generateMarkdown(answers)
+      );
     })
     .catch((error) => {
       if (error.isTtyError) {
-        // Prompt couldn't be rendered in the current environment
+        console.log("Prompt couldn't be rendered in the current environment");
       } else {
-        // Something else went wrong
+        console.log(error);
       }
     });
 }

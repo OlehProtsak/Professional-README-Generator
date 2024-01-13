@@ -9,7 +9,8 @@ const questions = [
     type: "input",
     name: "title",
     message: "What is the title of your project?",
-    validate: (input) => (!input ? "Please enter name of project" : true),
+    validate: (input) =>
+      !input.trim() ? "Please enter name of project" : true,
   },
   {
     type: "input",
@@ -66,7 +67,6 @@ const questions = [
     name: "contributing",
     message:
       "Are there any guidelines for others who want to contribute to your project?",
-    dafault: "N/A",
   },
   {
     type: "input",

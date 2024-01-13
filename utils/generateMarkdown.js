@@ -1,36 +1,60 @@
 // function to generate markdown for README
-function generateMarkdown(data) {
+function generateMarkdown({
+  title,
+  description,
+  installation,
+  usage,
+  license,
+  contributing,
+  test,
+  userName,
+  email,
+  tableOfContents,
+}) {
   let result = "";
 
-  for (let i = 0; i < data.tableOfContents.length; i++) {
-    result += `- [${data.tableOfContents[i]}](#${data.tableOfContents[i]})\n`;
+  for (let i = 0; i < tableOfContents.length; i++) {
+    result += `- [${tableOfContents[i]}](#${tableOfContents[i]})\n`;
   }
 
-  return `# ${data.title}
+  const githubLink = userName
+    ? `[${userName}](https://github.com/${userName})`
+    : "N/A";
+  const contactInfo = email
+    ? `For additional questions, contact ${userName} at ${email}.`
+    : "N/A";
+  const testsSection = test
+    ? `\`\`\`
+    ${test}
+    \`\`\``
+    : "No testing instructions provided.";
+
+  return `# ${title}
 
 ## Description
-${data.description}
+${description}
 
 ## Table of Contents
 ${result}
 
 ## Installation
-${data.installation}
+${installation}
 
 ## Usage
-${data.usage}
+${usage}
 
 ## License
-This project is licensed under the ${data.license} License - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the ${license} License - see the [LICENSE.md](LICENSE.md) file for details.
 
 ## Contributing
-${data.contributing}
+${contributing}
 
 ## Tests
-${data.tests}
+${testsSection}
 
 ## Questions
-For questions or concerns related to this project, please contact ${data.username} at ${data.email}.
+- GitHub Profile: ${githubLink}
+- Contact: ${contactInfo}
 `;
 }
 
