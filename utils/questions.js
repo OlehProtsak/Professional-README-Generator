@@ -61,6 +61,7 @@ const questions = [
       "ISC License",
       "Unlicense",
     ],
+    default: "N/A",
   },
   {
     type: "input",
