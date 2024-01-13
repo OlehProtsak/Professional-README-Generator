@@ -57,7 +57,3 @@ For any inquiries or issues, please contact the project owner:
 
 - [Oleh Protsak](https://github.com/OlehProtsak)
 - Email: protsak19@gmail.com
-
-```
-
-```
