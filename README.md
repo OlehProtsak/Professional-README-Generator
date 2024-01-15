@@ -6,6 +6,10 @@
 
 The Professional README Generator is a Node.js application designed to assist users in creating professional README files through the command line interface (CLI). It utilizes Node.js, npm, and the inquirer package to prompt users with a series of questions and dynamically generate a comprehensive README file based on their responses.
 
+### Watch Project Demo
+
+- [Watch a video demonstration of the project on Google Drive](https://drive.google.com/file/d/1dT4Rru1oufd2HPBrC2OCD0WuBfakpCSG/view)
+
 ### Technologies Used
 
 - JavaScript (Node.js)
